@@ -11,5 +11,5 @@ $file_db = new PDO('sqlite:../database/database.sqlite');
 foreach ($file_db->query('SELECT * FROM customers WHERE customerId = ' . $id) as $row) {
     $customer = $row['LastName'] . " - " . $row['Email'] . "\n";
 
-    echo $customer;
+    echo htmlentities($customer, ENT_QUOTES);
 }
